@@ -4,32 +4,57 @@ package muhammadRizkyUtomoJSleepRJ;
 /**
  * Write a description of class JSleep here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Muhammad Rizky Utomo
+ * @version 13/09/2022
  */
 public class JSleep
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class JSleep
-     */
-    public JSleep()
-    {
-        // initialise instance variables
-        x = 0;
+    public static void main(String[] args) {
+        
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    
+    public static int getHotelId() {
+        return 0;
+    }
+    
+    public static String getHotelName() {
+        return "hotel";
+    }
+    
+    public static boolean isDiscount() {
+        return true;
+    }
+    
+    public static float getDiscountedPercentage(int beforeDiscount, int afterDiscount) {
+        if (afterDiscount < beforeDiscount) {
+            return (((beforeDiscount - afterDiscount) / beforeDiscount) * 100);
+        } else {
+            return 0;
+        }
+    }
+    
+    public static int getDiscountedPrice(int price, float discountPercentage) {
+        if (discountPercentage > 100) {
+            return 0;
+        }
+        
+        return (int) (((100 - discountPercentage) / 100) * price);
+    }
+    
+    public static int getOriginalPrice(int discountedPrice, float discountPercentage) {
+        return (int) (discountedPrice * (100 / (100 - discountPercentage)));
+    }
+    
+    public static float getAdminFeePercentage() {
+        return 0.05f;
+    }
+    
+    public static int getAdminFee(int price) {
+        return (int) (price * getAdminFeePercentage());
+    }
+    
+    public static int getTotalPrice(int price, int numberOfNight) {
+        int total = numberOfNight * price;
+        return (int) (total + (total * getAdminFeePercentage()));
     }
 }
