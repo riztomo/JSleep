@@ -23,7 +23,7 @@ public class JSleep
         return room;
     }
     
-    public static int getHotelId() {
+    /*public static int getHotelId() {
         return 0;
     }
     
@@ -66,5 +66,5 @@ public class JSleep
     public static int getTotalPrice(int price, int numberOfNight) {
         int total = numberOfNight * price;
         return (int) (total + (total * getAdminFeePercentage()));
-    }
+    }*/
 }
