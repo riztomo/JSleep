@@ -35,7 +35,7 @@ public class JSleep
         return true;
     }
     
-    public static float getDiscountedPercentage(int beforeDiscount, int afterDiscount) {
+    public static float getDiscountPercentage(int beforeDiscount, int afterDiscount) {
         if (afterDiscount < beforeDiscount) {
             return (((beforeDiscount - afterDiscount) / beforeDiscount) * 100);
         } else {
