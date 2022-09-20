@@ -10,10 +10,20 @@ package muhammadRizkyUtomoJSleepRJ;
 public class JSleep
 {
     public static void main(String[] args) {
-        
+        Room roomEx = createRoom();
+        System.out.println(roomEx.name);
+        System.out.println(roomEx.size);
+        System.out.println(roomEx.price.price);
+        System.out.println(roomEx.facility);
     }
     
-    public static int getHotelId() {
+    public static Room createRoom() {
+        Price price = new Price(5000000, 18);
+        Room room = new Room("room", 30, price, Facility.Refrigerator);
+        return room;
+    }
+    
+    /* public static int getHotelId() {
         return 0;
     }
     
@@ -56,5 +66,5 @@ public class JSleep
     public static int getTotalPrice(int price, int numberOfNight) {
         int total = numberOfNight * price;
         return (int) (total + (total * getAdminFeePercentage()));
-    }
+    } */
 }
