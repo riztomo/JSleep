@@ -19,11 +19,11 @@ public class JSleep
     
     public static Room createRoom() {
         Price price = new Price(5000000, 18);
-        Room room = new Room("room", 30, price, Facility.Refrigerator);
+        Room room = new Room("room", 30, price, Facility.AC);
         return room;
     }
     
-    /* public static int getHotelId() {
+    public static int getHotelId() {
         return 0;
     }
     
@@ -66,5 +66,5 @@ public class JSleep
     public static int getTotalPrice(int price, int numberOfNight) {
         int total = numberOfNight * price;
         return (int) (total + (total * getAdminFeePercentage()));
-    } */
+    }
 }
