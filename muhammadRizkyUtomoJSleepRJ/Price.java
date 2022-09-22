@@ -9,42 +9,15 @@ package muhammadRizkyUtomoJSleepRJ;
  */
 public class Price
 {
-    public double rebate;
     public double price;
-    public int discount;
+    public double discount;
     
     public Price(double price) {
         this.price = price;
-        this.rebate = 0;
-        this.discount = 0;
     }
     
-    public Price(double price, int discount) {
+    public Price(double price, double discount) {
         this.price = price;
-        this.rebate = 0;
         this.discount = discount;
-    }
-    
-    public Price(double price, double rebate) {
-        this.price = price;
-        this.rebate = rebate;
-        this.discount = 0;
-    }
-    
-    private double getDiscountedPrice() {
-        if (discount > 100) {
-            discount = 100;
-        } else if (discount == 100) {
-            return 0;
-        }
-        return price - (price * (discount / 100));
-    }
-    
-    private double getRebatedPrice() {
-        if (rebate > price) {
-            rebate = price;
-        }
-        
-        return price - rebate;
     }
 }
