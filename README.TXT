@@ -1,12 +1,8 @@
-------------------------------------------------------------------------
-This is the project README file. Here, you should describe your project.
-Tell the reader (someone who does not know anything about this project)
-all they need to know. The comments should usually include at least:
-------------------------------------------------------------------------
+Ini adalah proyek yang dikhususkan untuk praktikum mata kuliah Pemrograman Berorientasi Objek dari Universitas Indonesia.
 
-PROJECT TITLE:
-PURPOSE OF PROJECT:
-VERSION or DATE:
-HOW TO START THIS PROJECT:
-AUTHORS:
-USER INSTRUCTIONS:
+PROJECT TITLE: JSleep
+PURPOSE OF PROJECT: Work result of the lecture's lab sessions.
+VERSION or DATE: 22/09/2022 in dd/mm/yyyy
+HOW TO START THIS PROJECT: Project is already started
+AUTHORS: Muhammad Rizky Utomo
+USER INSTRUCTIONS: You may use these files to review my work.
