@@ -2,10 +2,10 @@ package muhammadRizkyUtomoJSleepRJ;
 
 
 /**
- * Enumeration class Facility - write a description of the enum class here
+ * Enumeration class Facility - contains the facilities that a room might have.
  *
- * @author (your name here)
- * @version (version number or date here)
+ * @author Muhammad Rizky Utomo
+ * @version 27/09/2022
  */
 public enum Facility
 {

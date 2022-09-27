@@ -2,10 +2,10 @@ package muhammadRizkyUtomoJSleepRJ;
 
 
 /**
- * Write a description of class Rating here.
+ * Determines the customer's rating of their experience.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Muhammad Rizky Utomo
+ * @version 27/09/2022
  */
 public class Rating
 {

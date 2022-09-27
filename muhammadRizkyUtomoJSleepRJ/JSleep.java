@@ -2,28 +2,34 @@ package muhammadRizkyUtomoJSleepRJ;
 
 
 /**
- * Write a description of class JSleep here.
+ * Location of the 'main' method.
  *
  * @author Muhammad Rizky Utomo
- * @version 13/09/2022
+ * @version 27/09/2022
  */
 public class JSleep
 {
     public static void main(String[] args) {
-        Room roomEx = createRoom();
+        /*Room roomEx = createRoom();
         System.out.println(roomEx.name);
         System.out.println(roomEx.size);
         System.out.println(roomEx.price.price);
-        System.out.println(roomEx.facility);
+        System.out.println(roomEx.facility);*/
+        
+        Payment testRoom = new Payment(1, 1, 1, "", 1, "", "");
+        Invoice testInvoice = new Invoice(2, 2, 2, "");
+        System.out.println(testRoom.print());
+        System.out.println(testInvoice.print());
     }
     
+    /*
     public static Room createRoom() {
         Price price = new Price(5000000, 18);
         Room room = new Room("room", 30, price, Facility.AC);
         return room;
     }
     
-    /*public static int getHotelId() {
+    public static int getHotelId() {
         return 0;
     }
     

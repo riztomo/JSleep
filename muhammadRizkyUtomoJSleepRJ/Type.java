@@ -2,10 +2,10 @@ package muhammadRizkyUtomoJSleepRJ;
 
 
 /**
- * Enumeration class Type - write a description of the enum class here
+ * Enumeration class Type - contains the Voucher types.
  *
- * @author (your name here)
- * @version (version number or date here)
+ * @author Muhammad Rizky Utomo
+ * @version 27/09/2022
  */
 public enum Type
 {
