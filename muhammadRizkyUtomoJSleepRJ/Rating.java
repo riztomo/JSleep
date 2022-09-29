@@ -38,4 +38,11 @@ public class Rating
     public long getTotal() {
         return total;
     }
+    
+    public String toString() {
+        return(
+            "Total: " + total + "\n" +
+            "Count: " + count + "\n"
+        );
+    }
 }

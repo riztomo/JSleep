@@ -13,12 +13,30 @@ public class Room extends Serializable
     public String name;
     public Facility facility;
     public Price price;
+    public String address;
+    public BedType bedType;
+    public City city;
     
-    public Room(int id, String name, int size, Price price, Facility facility) {
+    public Room(int id, String name, int size, Price price, Facility facility,
+                City city, String address) {
         super(id);
         this.size = size;
         this.name = name;
         this.facility = facility;
         this.price = price;
+        this.city = city;
+        this.address = address;
+    }
+    
+    public String toString() {
+        return (    
+            "Name: " + name + "\n" +
+            "Size: " + size + "\n" +
+            price + 
+            "Bed: " + bedType + "\n" +
+            "Facility: " + facility + "\n" +
+            "City: " + city + "\n" +
+            "Address: " + address + "\n"
+        );
     }
 }
