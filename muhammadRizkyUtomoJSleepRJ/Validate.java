@@ -15,7 +15,7 @@ public class Validate
     }
     
     public static ArrayList filter (Price[] list, int value, boolean less) {
-        ArrayList<Double> values = new ArrayList<Double>();
+        ArrayList<Double> values = new ArrayList<>();
         
         if (less) {
             for (Price iter : list) {

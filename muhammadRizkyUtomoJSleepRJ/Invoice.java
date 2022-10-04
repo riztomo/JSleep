@@ -8,6 +8,7 @@ import java.util.Calendar;
  * @author Muhammad Rizky Utomo
  * @version 04/10/2022
  */
+
 public class Invoice extends Serializable
 {
     public int buyerId;
