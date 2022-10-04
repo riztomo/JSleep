@@ -4,8 +4,8 @@ package muhammadRizkyUtomoJSleepRJ;
 /**
  * Write a description of class Complaint here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Muhammad Rizky Utomo
+ * @version 04/10/2022
  */
 public class Complaint extends Serializable
 {

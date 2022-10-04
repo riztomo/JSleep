@@ -5,9 +5,9 @@ package muhammadRizkyUtomoJSleepRJ;
  * Write a description of class Room here.
  *
  * @author Muhammad Rizky Utomo
- * @version 27/09/2022
+ * @version 04/10/2022
  */
-public class Room extends Serializable
+public class Room extends Serializable implements FileParser
 {
     public int size;
     public String name;
@@ -38,5 +38,13 @@ public class Room extends Serializable
             "City: " + city + "\n" +
             "Address: " + address + "\n"
         );
+    }
+    
+    public Object write() {
+        return null;
+    }
+    
+    public boolean read(String a) {
+        return false;
     }
 }

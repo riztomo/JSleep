@@ -5,9 +5,9 @@ package muhammadRizkyUtomoJSleepRJ;
  * Write a description of class Account here.
  *
  * @author Muhammad Rizky Utomo
- * @version 27/09/2022
+ * @version 04/10/2022
  */
-public class Account extends Serializable
+public class Account extends Serializable implements FileParser
 {
     public String name;
     public String email;
@@ -26,5 +26,13 @@ public class Account extends Serializable
             "Email: " + email + "\n" +
             "Password: " + password + "\n"
         );
+    }
+    
+    public Object write() {
+        return null;
+    }
+    
+    public boolean read(String a) {
+        return false;
     }
 }

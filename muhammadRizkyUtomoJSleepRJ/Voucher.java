@@ -5,9 +5,9 @@ package muhammadRizkyUtomoJSleepRJ;
  * Write a description of class Voucher here.
  *
  * @author Muhammad Rizky Utomo
- * @version 27/09/2022
+ * @version 04/10/2022
  */
-public class Voucher extends Serializable
+public class Voucher extends Serializable implements FileParser
 {
     public Type type;
     public double cut;
@@ -49,5 +49,13 @@ public class Voucher extends Serializable
         }
         
         return result;
+    }
+    
+    public Object write() {
+        return null;
+    }
+    
+    public boolean read(String a) {
+        return false;
     }
 }

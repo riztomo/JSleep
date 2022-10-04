@@ -5,7 +5,7 @@ package muhammadRizkyUtomoJSleepRJ;
  * Enumeration class Type - contains the Voucher types.
  *
  * @author Muhammad Rizky Utomo
- * @version 27/09/2022
+ * @version 04/10/2022
  */
 public enum Type
 {

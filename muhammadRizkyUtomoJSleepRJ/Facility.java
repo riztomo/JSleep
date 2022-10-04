@@ -5,7 +5,7 @@ package muhammadRizkyUtomoJSleepRJ;
  * Enumeration class Facility - contains the facilities that a room might have.
  *
  * @author Muhammad Rizky Utomo
- * @version 27/09/2022
+ * @version 04/10/2022
  */
 public enum Facility
 {
