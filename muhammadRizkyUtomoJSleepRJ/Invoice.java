@@ -1,5 +1,6 @@
 package muhammadRizkyUtomoJSleepRJ;
 import java.util.Calendar;
+import java.util.Date;
 
 
 /**
@@ -11,9 +12,19 @@ import java.util.Calendar;
 
 public class Invoice extends Serializable
 {
+    public enum PaymentStatus
+    {
+        FAILED, WAITING, SUCCESS
+    }
+    
+    public enum RoomRating
+    {
+        NONE, BAD, NEUTRAL, GOOD
+    }
+    
     public int buyerId;
     public int renterId;
-    public Calendar time;
+    public Date time;
     public RoomRating rating;
     public PaymentStatus status;
     
@@ -21,14 +32,14 @@ public class Invoice extends Serializable
         super(id);
         this.buyerId = buyerId;
         this.renterId = renterId;
-        this.time = Calendar.getInstance();
+        this.time = new Date();
         this.rating = RoomRating.NONE;
         this.status = PaymentStatus.WAITING;
     }
     
     public Invoice(int id, Account buyer, Renter renter) {
         super(id);
-        this.time = Calendar.getInstance();
+        this.time = new Date();
         this.buyerId = buyer.id;
         this.renterId = renter.id;
         this.rating = RoomRating.NONE;

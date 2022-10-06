@@ -1,5 +1,5 @@
 package muhammadRizkyUtomoJSleepRJ;
-
+import java.sql.Date;
 
 /**
  * Location of the 'main' method.
@@ -35,7 +35,7 @@ public class JSleep
         System.out.println(testPrice.toString());
         System.out.println(testRating.toString()); */
         
-        Payment testPayment = new Payment(2, 2, 2,2);
+        /*Payment testPayment = new Payment(2, 2, 2,2);
         System.out.println(testPayment.getTime());
         System.out.println(testPayment.getDuration());
         Price[] unfilteredArray = new Price[5];
@@ -50,16 +50,32 @@ public class JSleep
         System.out.println("Below 12000.0");
         System.out.println(Validate.filter(unfilteredArray, 12000,true));
         System.out.println("Above 10000.0");
-        System.out.println(Validate.filter(unfilteredArray, 10000,false));
+        System.out.println(Validate.filter(unfilteredArray, 10000,false));*/
+        
+        Room RoomA = createRoom();
+        Room RoomB = createRoom();
+        System.out.println("Membuat booking dari tanggal 15 hingga 18");
+        Date start = Date.valueOf("2022-8-15");
+        Date end = Date.valueOf("2022-8-20");
+        System.out.println(Payment.makeBooking(start, end,RoomA));
+        System.out.println("Membuat booking dari tanggal 15 hingga 18");
+        Date start2 = Date.valueOf("2022-8-18");
+        Date end2 = Date.valueOf("2022-8-20");
+        System.out.println(Payment.makeBooking(start2, end2,RoomA));
+        System.out.println("Membuat booking dari tanggal 15 hingga 18 untuk kamar berbeda");
+        Date start3 = Date.valueOf("2022-8-18");
+        Date end3 = Date.valueOf("2022-8-20");
+        System.out.println(Payment.makeBooking(start3, end3,RoomB));
     }
     
-    /*
+    
     public static Room createRoom() {
         Price price = new Price(5000000, 18);
-        Room room = new Room("room", 30, price, Facility.AC);
+        Room room = new Room(1, "room", 30, price, Facility.AC, City.SURABAYA, "somewhere");
         return room;
     }
     
+    /*
     public static int getHotelId() {
         return 0;
     }
