@@ -1,5 +1,6 @@
-package muhammadRizkyUtomoJSleepRJ;
+package MuhammadRizkyUtomoJSleepRJ;
 import java.sql.Date;
+import java.util.ArrayList;
 
 /**
  * Location of the 'main' method.
@@ -52,7 +53,7 @@ public class JSleep
         System.out.println("Above 10000.0");
         System.out.println(Validate.filter(unfilteredArray, 10000,false));*/
         
-        Room RoomA = createRoom();
+        /*Room RoomA = createRoom();
         Room RoomB = createRoom();
         System.out.println("Membuat booking dari tanggal 15 hingga 18");
         Date start = Date.valueOf("2022-8-15");
@@ -65,13 +66,20 @@ public class JSleep
         System.out.println("Membuat booking dari tanggal 15 hingga 18 untuk kamar berbeda");
         Date start3 = Date.valueOf("2022-8-18");
         Date end3 = Date.valueOf("2022-8-20");
-        System.out.println(Payment.makeBooking(start3, end3,RoomB));
+        System.out.println(Payment.makeBooking(start3, end3,RoomB));*/
+
+        ArrayList<Room> RoomSer = new ArrayList<>();
+
+        for (int i = 0; i < 5; i++) {
+            RoomSer.add(i, JSleep.createRoom());
+            System.out.println(RoomSer.get(i).toString());
+        }
     }
     
     
     public static Room createRoom() {
         Price price = new Price(5000000, 18);
-        Room room = new Room(1, "room", 30, price, Facility.AC, City.SURABAYA, "somewhere");
+        Room room = new Room("Hotel", 30, price, Facility.AC, City.SURABAYA, "somewhere");
         return room;
     }
     

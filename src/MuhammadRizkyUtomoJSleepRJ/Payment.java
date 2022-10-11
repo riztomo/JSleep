@@ -1,4 +1,4 @@
-package muhammadRizkyUtomoJSleepRJ;
+package MuhammadRizkyUtomoJSleepRJ;
 import java.util.Calendar;
 import java.util.Date;
 import java.text.SimpleDateFormat;
@@ -20,8 +20,8 @@ public class Payment extends Invoice
     private int roomId;
     
     /** The constructor obtains four int-s... */
-    public Payment(int id, int buyerId, int renterId, int roomId) {
-        super(id, buyerId, renterId);
+    public Payment(int buyerId, int renterId, int roomId) {
+        super(buyerId, renterId);
         this.roomId = roomId;
         this.from = new Date();
         this.to = new Date();
@@ -33,8 +33,8 @@ public class Payment extends Invoice
     }
     
     /** ...or change the two int-s of buyer and renter ID with an object from Account and Renter */
-    public Payment( int id, Account buyer, Renter renter, int roomId) {
-        super(id, buyer, renter);
+    public Payment(Account buyer, Renter renter, int roomId) {
+        super(buyer, renter);
         this.roomId = roomId;
         this.from = new Date();
         this.to = new Date();

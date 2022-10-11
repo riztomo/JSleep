@@ -1,4 +1,4 @@
-package muhammadRizkyUtomoJSleepRJ;
+package MuhammadRizkyUtomoJSleepRJ;
 
 import java.util.ArrayList;
 
