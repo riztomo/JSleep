@@ -24,11 +24,7 @@ public class Payment extends Invoice
         super(buyerId, renterId);
         this.roomId = roomId;
         this.from = new Date();
-        this.to = new Date();
-        Calendar adder = Calendar.getInstance();
-        adder.setTime(to);
-        adder.add(Calendar.DATE, 2);
-        to = adder.getTime();
+        this.to = new Date(this.from.getTime() + 2*24*60*60*1000);
         
     }
     
@@ -37,11 +33,7 @@ public class Payment extends Invoice
         super(buyer, renter);
         this.roomId = roomId;
         this.from = new Date();
-        this.to = new Date();
-        Calendar adder = Calendar.getInstance();
-        adder.setTime(to);
-        adder.add(Calendar.DATE, 2);
-        to = adder.getTime();
+        this.to = new Date(this.from.getTime() + 2*24*60*60*1000);
     }
     
     /** Gets the room ID */
@@ -70,21 +62,26 @@ public class Payment extends Invoice
     }
     
     public static boolean availability(Date from,Date to,Room room) {
-        
-        Calendar fromCal = Calendar.getInstance();
-        fromCal.setTime(from);
-        Calendar toCal = Calendar.getInstance();
-        toCal.setTime(to);
-        
+
+        Date prevDate = new Date();
+        int iter = 1;
+
         if (from.compareTo(to) > 0) {
             return false;
         } else if (room.booked.isEmpty()) {
             return true;
         } else {
             for (Date roomDate : room.booked) {
-                if (roomDate.compareTo(fromCal.getTime()) >= 0 && roomDate.compareTo(toCal.getTime()) <= 0) {
+                if (roomDate.compareTo(from) >= 0 && roomDate.compareTo(to) <= 0) {
                     return false;
+                } else if ((iter % 2) == 0) {
+                    if (from.compareTo(prevDate) > 0 && to.compareTo(roomDate) < 0) {
+                        return false;
+                    }
                 }
+
+                iter += 1;
+                prevDate = roomDate;
             }
         }
         

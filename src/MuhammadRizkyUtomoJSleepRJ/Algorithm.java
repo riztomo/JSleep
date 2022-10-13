@@ -1,7 +1,9 @@
 package MuhammadRizkyUtomoJSleepRJ;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 
 public class Algorithm{
 
@@ -106,5 +108,68 @@ public class Algorithm{
             if (b.predicate(current)) { return current; }
         }
         return null;
+    }
+
+    public static <T> List<T> collect(T[] a, Predicate<T> b){
+        final Iterator<T> it = Arrays.stream(a).iterator();
+        return collect(it, b);
+    }
+
+    public static <T> List<T> collect(T[] a, T b){
+        final Iterator<T> it = Arrays.stream(a).iterator();
+        return collect(it, b);
+    }
+
+    public static <T> List<T> collect(Iterable<T> iterable, T b){
+        final Iterator<T> it = iterable.iterator();
+        return collect(it, b);
+    }
+
+    public static <T> List<T> collect(Iterator<T> iterator, T value){
+        final Predicate<T> b = value::equals;
+        return collect(iterator, b);
+    }
+
+    public static <T> List<T> collect(Iterable<T> iterable, Predicate<T> b){
+        final Iterator<T> it = iterable.iterator();
+        return collect(it, b);
+    }
+
+    public static <T> List<T> collect(Iterator<T> iterator, Predicate<T> b){
+
+        List<T> newList = new ArrayList<T>();
+
+        while (iterator.hasNext()) {
+            T current = iterator.next();
+            if (b.predicate(current)) { newList.add(current); }
+        }
+        return newList;
+    }
+
+    public static <T> List<T> paginate(T[] iter, int page, int pageSize, Predicate<T> pred) {
+        final Iterator<T> it = Arrays.stream(iter).iterator();
+        return paginate(it, page, pageSize, pred);
+    }
+
+    public static <T> List<T> paginate(Iterable<T> iter, int page, int pageSize, Predicate<T> pred) {
+        final Iterator<T> it = iter.iterator();
+        return paginate(it, page, pageSize, pred);
+    }
+    public static <T> List<T> paginate(Iterator<T> iter, int page, int pageSize, Predicate<T> pred) {
+
+        List<T> obtained = new ArrayList<>();
+        int i = 0;
+
+        while (iter.hasNext()) {
+            T current = iter.next();
+            if (pred.predicate(current)) {
+                if (i >= page && i < page+pageSize) {
+                    obtained.add(current);
+                }
+                i += 1;
+            }
+        }
+
+        return obtained;
     }
 }
