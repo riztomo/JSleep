@@ -1,6 +1,11 @@
 package MuhammadRizkyUtomoJSleepRJ;
 import java.sql.Date;
-import java.util.ArrayList;
+/*import java.util.ArrayList;*/
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.List;
+import com.google.gson.*;
 
 /**
  * Location of the 'main' method.
@@ -12,6 +17,11 @@ import java.util.ArrayList;
 /** Place of running (and testing) */
 public class JSleep
 {
+    class Country {
+        public String name;
+        public int population;
+        public List<String> listOfStates;
+    }
     public static void main(String[] args) {
         /*Room roomEx = createRoom();
         System.out.println(roomEx.name);
@@ -68,11 +78,26 @@ public class JSleep
         Date end3 = Date.valueOf("2022-8-20");
         System.out.println(Payment.makeBooking(start3, end3,RoomB));*/
 
-        ArrayList<Room> RoomSer = new ArrayList<>();
+        /*ArrayList<Room> RoomSer = new ArrayList<>();*/
 
+        /*
         for (int i = 0; i < 5; i++) {
             RoomSer.add(i, JSleep.createRoom());
             System.out.println(RoomSer.get(i).toString());
+        } */
+
+        String filepath = "C:\\Users\\rizky\\Documents\\2022_Praktikum OOP\\JSleep\\city.json";
+        Gson gson = new Gson();
+
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(filepath));
+            Country input = gson.fromJson(br, Country.class);
+            System.out.println("name: " + input.name);
+            System.out.println("population: " + input.population);
+            System.out.println("states: ");
+            input.listOfStates.forEach(state -> System.out.println(state));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
     
