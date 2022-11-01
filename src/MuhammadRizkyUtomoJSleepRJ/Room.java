@@ -9,9 +9,10 @@ import java.util.Date;
  * @author Muhammad Rizky Utomo
  * @version 04/10/2022
  */
-public class Room extends Serializable implements FileParser
+public class Room extends Serializable
 {
     public int size;
+    public int accountId;
     public String name;
     public Facility facility;
     public Price price;
@@ -20,13 +21,14 @@ public class Room extends Serializable implements FileParser
     public City city;
     public ArrayList<Date> booked = new ArrayList<>();
     
-    public Room(String name, int size, Price price, Facility facility, City city, String address) {
+    public Room(int accountId, String name, int size, Price price, Facility facility, City city, String address) {
         this.size = size;
         this.name = name;
         this.facility = facility;
         this.price = price;
         this.city = city;
         this.address = address;
+        this.accountId = accountId;
     }
     
     public String toString() {

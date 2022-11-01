@@ -1,4 +1,6 @@
 package MuhammadRizkyUtomoJSleepRJ;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 /**
@@ -9,31 +11,30 @@ package MuhammadRizkyUtomoJSleepRJ;
  */
 public class Renter extends Serializable
 {
-    public int phoneNumber;
+    public String phoneNumber;
     public String address;
     public String username;
-    
-    public Renter(String username) {
-        this.username = username;
-        this.phoneNumber = 0;
-        this.address = " ";
-    }
-    
-    public Renter(String username, String address) {
-        this.username = username;
-        this.address = address;
-        this.phoneNumber = 0;
-    }
-    
-    public Renter(String username, int phoneNumber) {
-        this.username = username;
-        this.phoneNumber = phoneNumber;
-        this.address = " ";
-    }
-    
-    public Renter(String username, int phoneNumber, String address) {
-        this.username = username;
+    public static final String REGEX_NAME = "^[A-Z][a-z_-]{5,22}$";
+    public static final String REGEX_PHONE = "[0-9]{9,12}$";
+
+    public Renter (String username, String phoneNumber, String address)
+    {
         this.address = address;
         this.phoneNumber = phoneNumber;
+        this.username = username;
+    }
+
+    public boolean validate()
+    {
+        Pattern usernamePattern = Pattern.compile(REGEX_NAME);
+        Pattern phoneNumPattern = Pattern.compile(REGEX_PHONE);
+        Matcher usernameMatch = usernamePattern.matcher(username);
+        Matcher phoneNumMatch = phoneNumPattern.matcher(phoneNumber);
+
+        if (usernameMatch.find() == false || phoneNumMatch.find() == false) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }

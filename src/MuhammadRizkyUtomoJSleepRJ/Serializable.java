@@ -11,7 +11,7 @@ import java.util.HashMap;
  */
 public class Serializable
 {
-    public final int id = 0;
+    public final int id;
     private static HashMap<Class<?>, Integer> mapCounter = new HashMap<>();
 
 
@@ -21,6 +21,7 @@ public class Serializable
         else {il += 1;}
 
         mapCounter.put(getClass(), il);
+        this.id = il;
     }
 
     public int compareTo(Serializable a) {
@@ -40,11 +41,11 @@ public class Serializable
         return a.id == id;
     }
 
-    public static <T> Integer getClosingId(Class<T> a) {
+    public static <T extends Serializable> Integer getClosingId(Class<T> a) {
         return mapCounter.get(a);
     }
 
-    public static <T> Integer setClosingId(Class<T> a, int setter) {
+    public static <T extends Serializable> Integer setClosingId(Class<T> a, int setter) {
         return mapCounter.put(a, setter);
     }
 }

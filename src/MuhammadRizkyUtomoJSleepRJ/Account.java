@@ -7,7 +7,7 @@ package MuhammadRizkyUtomoJSleepRJ;
  * @author Muhammad Rizky Utomo
  * @version 04/10/2022
  */
-public class Account extends Serializable implements FileParser
+public class Account extends Serializable
 {
     public String name;
     public String email;

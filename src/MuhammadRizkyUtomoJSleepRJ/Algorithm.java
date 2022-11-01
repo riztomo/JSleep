@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Algorithm{
 
-    private Algorithm() {
+    Algorithm() {
 
     }
     public static <T> int count(Iterator<T> a, T b){

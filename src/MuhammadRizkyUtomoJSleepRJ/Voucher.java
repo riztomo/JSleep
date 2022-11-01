@@ -7,7 +7,7 @@ package MuhammadRizkyUtomoJSleepRJ;
  * @author Muhammad Rizky Utomo
  * @version 04/10/2022
  */
-public class Voucher extends Serializable implements FileParser
+public class Voucher extends Serializable
 {
     public Type type;
     public double cut;

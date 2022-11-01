@@ -1,9 +1,10 @@
 package MuhammadRizkyUtomoJSleepRJ;
 import java.sql.Date;
-/*import java.util.ArrayList;*/
+import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
 import com.google.gson.*;
 
@@ -78,13 +79,13 @@ public class JSleep
         Date end3 = Date.valueOf("2022-8-20");
         System.out.println(Payment.makeBooking(start3, end3,RoomB));*/
 
-        /*ArrayList<Room> RoomSer = new ArrayList<>();*/
+        ArrayList<Room> RoomSer = new ArrayList<>();
 
-        /*
-        for (int i = 0; i < 5; i++) {
+
+        /* for (int i = 0; i < 5; i++) {
             RoomSer.add(i, JSleep.createRoom());
             System.out.println(RoomSer.get(i).toString());
-        } */
+        }
 
         String filepath = "C:\\Users\\rizky\\Documents\\2022_Praktikum OOP\\JSleep\\city.json";
         Gson gson = new Gson();
@@ -98,14 +99,70 @@ public class JSleep
             input.listOfStates.forEach(state -> System.out.println(state));
         } catch (IOException e) {
             e.printStackTrace();
+        } */
+
+        Renter testRegex = new Renter("Netlab_", "081212345678", "Jl");
+        System.out.println(testRegex.validate());
+
+        try {
+            String filepath = "C:\\Users\\rizky\\Documents\\2022_Praktikum OOP\\JSleep\\src\\json\\randomRoomList.json";
+
+            JsonTable<Room> tableRoom = new JsonTable<>(Room.class, filepath);
+            List<Room> filterTableRoom = filterByCity(tableRoom, "medan", 0, 5);
+            filterTableRoom.forEach(room -> System.out.println(room.toString()));
+        } catch (Throwable t) {
+            t.printStackTrace();
         }
     }
     
     
     public static Room createRoom() {
         Price price = new Price(5000000, 18);
-        Room room = new Room("Hotel", 30, price, Facility.AC, City.SURABAYA, "somewhere");
+        Room room = new Room(1,"Hotel", 30, price, Facility.AC, City.SURABAYA, "somewhere");
         return room;
+    }
+
+    public static List<Room> filterByCity(List<Room> roomList, String city, int page, int pageSize) {
+        Algorithm algo = new Algorithm();
+        List<Room> sent = algo.paginate(roomList, page, pageSize, city::equals);
+        return sent;
+    }
+    public static List<Room> filterByPrice(List<Room> roomList, double priceStart, double priceFinish) {
+        List<Room> obtained = new ArrayList<Room>();
+        int i = 0;
+
+        Iterable<Room> roomIterable = roomList;
+        Iterator<Room> roomFinalIter = roomIterable.iterator();
+
+        while (roomFinalIter.hasNext()) {
+            Room room = roomFinalIter.next();
+            if (room.price.price >= priceStart && room.price.price <= priceFinish) {
+                obtained.add(room);
+            }
+        }
+
+        return obtained;
+    }
+
+    public static List<Room> filterByAccountId(List<Room> roomList, int accountId, int idStart, int idRange) {
+
+        List<Room> obtained = new ArrayList<>();
+        int i = 0;
+
+        Iterable<Room> roomIterable = roomList;
+        Iterator<Room> roomFinalIter = roomIterable.iterator();
+
+        while (roomFinalIter.hasNext()) {
+            Room current = roomFinalIter.next();
+            if (current.accountId == accountId) {
+                if (i >= idStart && i < idStart+idRange) {
+                    obtained.add(current);
+                }
+                i += 1;
+            }
+        }
+
+        return obtained;
     }
     
     /*
