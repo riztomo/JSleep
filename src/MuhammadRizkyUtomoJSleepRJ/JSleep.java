@@ -1,28 +1,28 @@
 package MuhammadRizkyUtomoJSleepRJ;
+import java.io.*;
 import java.sql.Date;
 import java.util.ArrayList;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
+import java.io.File;
+import java.io.FileWriter;
 import com.google.gson.*;
 
 /**
  * Location of the 'main' method.
  *
  * @author Muhammad Rizky Utomo
- * @version 27/09/2022
+ * @version 01/11/2022
  */
 
 /** Place of running (and testing) */
 public class JSleep
 {
-    class Country {
+    /* class Country {
         public String name;
         public int population;
         public List<String> listOfStates;
-    }
+    }*/
     public static void main(String[] args) {
         /*Room roomEx = createRoom();
         System.out.println(roomEx.name);
@@ -101,17 +101,21 @@ public class JSleep
             e.printStackTrace();
         } */
 
-        Renter testRegex = new Renter("Netlab_", "081212345678", "Jl");
-        System.out.println(testRegex.validate());
+        /*Renter testRegex = new Renter("Netlab_", "081212345678", "Jl");
+        System.out.println(testRegex.validate());*/
 
         try {
-            String filepath = "C:\\Users\\rizky\\Documents\\2022_Praktikum OOP\\JSleep\\src\\json\\randomRoomList.json";
-
-            JsonTable<Room> tableRoom = new JsonTable<>(Room.class, filepath);
-            List<Room> filterTableRoom = filterByCity(tableRoom, "medan", 0, 5);
-            filterTableRoom.forEach(room -> System.out.println(room.toString()));
+            JsonTable<Account> tableAccount = new JsonTable<>(Account.class, "src/json/account.json");
+            Account acc = new Account("name", "email", "password");
+            tableAccount.add(acc);
+            tableAccount.writeJson();
         } catch (Throwable t) {
             t.printStackTrace();
+        }
+
+        for(int i = 0; i < 10; i++) {
+            ThreadingObject thread = new ThreadingObject("Thread " + i);
+            thread.run();
         }
     }
     

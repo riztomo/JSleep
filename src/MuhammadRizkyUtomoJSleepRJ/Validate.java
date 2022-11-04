@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * Write a description of class Validate here.
+ * Validate filters prices that are lower or higher than a certain value.
  *
  * @author Muhammad Rizky Utomo
- * @version 04/10/2022
+ * @version 01/11/2022
  */
 public class Validate
 {

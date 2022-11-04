@@ -4,10 +4,10 @@ package MuhammadRizkyUtomoJSleepRJ;
 import java.util.HashMap;
 
 /**
- * Write a description of class Serializable here.
+ * Serializable sets the id with increments
  *
  * @author Muhammad Rizky Utomo
- * @version 04/10/2022
+ * @version 01/11/2022
  */
 public class Serializable
 {

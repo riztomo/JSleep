@@ -4,10 +4,10 @@ import java.util.Date;
 
 
 /**
- * Write a description of class Invoice here.
+ * Generates the invoice for a recorded stay.
  *
  * @author Muhammad Rizky Utomo
- * @version 04/10/2022
+ * @version 01/11/2022
  */
 
 public class Invoice extends Serializable

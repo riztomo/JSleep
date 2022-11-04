@@ -4,10 +4,10 @@ import java.util.Date;
 
 
 /**
- * Write a description of class Room here.
+ * Describes the room properties.
  *
  * @author Muhammad Rizky Utomo
- * @version 04/10/2022
+ * @version 01/11/2022
  */
 public class Room extends Serializable
 {

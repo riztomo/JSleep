@@ -2,10 +2,10 @@ package MuhammadRizkyUtomoJSleepRJ;
 
 
 /**
- * Enumeration class City - write a description of the enum class here
+ * Enumeration class City - location of the branches of the hotel franchise.
  *
  * @author Muhammad Rizky Utomo
- * @version 04/10/2022
+ * @version 01/11/2022
  */
 public enum City
 {

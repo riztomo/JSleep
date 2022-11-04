@@ -2,10 +2,10 @@ package MuhammadRizkyUtomoJSleepRJ;
 
 
 /**
- * Enumeration class BedType - write a description of the enum class here
+ * Enumeration class BedType - available bed types.
  *
  * @author Muhammad Rizky Utomo
- * @version 04/10/2022
+ * @version 01/11/2022
  */
 public enum BedType
 {

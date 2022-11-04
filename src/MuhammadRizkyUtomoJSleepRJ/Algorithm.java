@@ -1,5 +1,12 @@
 package MuhammadRizkyUtomoJSleepRJ;
 
+/**
+ * Used for iteration purposes.
+ *
+ * @author Muhammad Rizky Utomo
+ * @version 01/11/2022
+ */
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;

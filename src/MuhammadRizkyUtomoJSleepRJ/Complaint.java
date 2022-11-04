@@ -2,10 +2,10 @@ package MuhammadRizkyUtomoJSleepRJ;
 
 
 /**
- * Write a description of class Complaint here.
+ * Stores a customer's complaint.
  *
  * @author Muhammad Rizky Utomo
- * @version 04/10/2022
+ * @version 01/11/2022
  */
 public class Complaint extends Serializable
 {

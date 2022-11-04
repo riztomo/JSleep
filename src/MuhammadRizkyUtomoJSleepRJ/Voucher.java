@@ -2,10 +2,10 @@ package MuhammadRizkyUtomoJSleepRJ;
 
 
 /**
- * Write a description of class Voucher here.
+ * Creates a voucher ticket.
  *
  * @author Muhammad Rizky Utomo
- * @version 04/10/2022
+ * @version 01/11/2022
  */
 public class Voucher extends Serializable
 {

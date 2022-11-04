@@ -4,10 +4,10 @@ import java.util.regex.Pattern;
 
 
 /**
- * Write a description of class Renter here.
+ * Stores the personal data of a renter.
  *
  * @author Muhammad Rizky Utomo
- * @version 04/10/2022
+ * @version 01/11/2022
  */
 public class Renter extends Serializable
 {
