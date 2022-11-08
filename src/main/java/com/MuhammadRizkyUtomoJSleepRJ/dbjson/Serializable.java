@@ -1,4 +1,4 @@
-package com.MuhammadRizkyUtomoJSleepRJ;
+package com.MuhammadRizkyUtomoJSleepRJ.dbjson;
 
 
 import java.util.HashMap;
@@ -9,7 +9,7 @@ import java.util.HashMap;
  * @author Muhammad Rizky Utomo
  * @version 01/11/2022
  */
-public class Serializable
+public class Serializable implements Comparable<Serializable>
 {
     public final int id;
     private static HashMap<Class<?>, Integer> mapCounter = new HashMap<>();

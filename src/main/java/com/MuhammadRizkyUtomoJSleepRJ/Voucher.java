@@ -1,6 +1,8 @@
 package com.MuhammadRizkyUtomoJSleepRJ;
 
 
+import com.MuhammadRizkyUtomoJSleepRJ.dbjson.Serializable;
+
 /**
  * Creates a voucher ticket.
  *

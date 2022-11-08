@@ -6,6 +6,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.io.File;
 import java.io.FileWriter;
+
+import com.MuhammadRizkyUtomoJSleepRJ.dbjson.JsonDBEngine;
 import com.google.gson.*;
 
 import org.springframework.boot.SpringApplication;
@@ -29,7 +31,11 @@ public class JSleep
     }*/
     public static void main(String[] args) {
 
+        /*SpringApplication.run(JSleep.class, args);*/
+
+        JsonDBEngine.Run(JSleep.class);
         SpringApplication.run(JSleep.class, args);
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> JsonDBEngine.join()));
 
         /*Room roomEx = createRoom();
         System.out.println(roomEx.name);
@@ -139,7 +145,7 @@ public class JSleep
         return sent;
     }
     public static List<Room> filterByPrice(List<Room> roomList, double priceStart, double priceFinish) {
-        List<Room> obtained = new ArrayList<Room>();
+        List<Room> obtained = new ArrayList<>();
         int i = 0;
 
         Iterable<Room> roomIterable = roomList;

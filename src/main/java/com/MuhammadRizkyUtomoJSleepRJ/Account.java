@@ -1,4 +1,6 @@
 package com.MuhammadRizkyUtomoJSleepRJ;
+import com.MuhammadRizkyUtomoJSleepRJ.dbjson.Serializable;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -13,6 +15,8 @@ public class Account extends Serializable
     public String name = "name";
     public String email = "email";
     public String password = "password";
+    public Renter renter;
+    public double balance;
 
     public static final String REGEX_EMAIL = "^[A-Za-z0-9]{1,}@{1}[A-Za-z]{1,}[.]{1}.([A-Za-z])$";
     public static final String REGEX_PASSWORD = "[(A-Z){1,}(a-z){1,}(0-9){1,}]{8,}";

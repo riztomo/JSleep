@@ -35,7 +35,7 @@ public class Payment extends Invoice
         this.from = new Date();
         this.to = new Date(this.from.getTime() + 2*24*60*60*1000);
     }
-    
+
     /** Gets the room ID */
     public int getRoomId() {
         return roomId;

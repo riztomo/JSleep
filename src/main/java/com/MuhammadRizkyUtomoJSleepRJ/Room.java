@@ -1,4 +1,6 @@
 package com.MuhammadRizkyUtomoJSleepRJ;
+import com.MuhammadRizkyUtomoJSleepRJ.dbjson.Serializable;
+
 import java.util.ArrayList;
 import java.util.Date;
 
