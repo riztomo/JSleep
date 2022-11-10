@@ -4,28 +4,36 @@ import com.MuhammadRizkyUtomoJSleepRJ.Account;
 import com.MuhammadRizkyUtomoJSleepRJ.Renter;
 import com.MuhammadRizkyUtomoJSleepRJ.dbjson.JsonAutowired;
 import com.MuhammadRizkyUtomoJSleepRJ.dbjson.JsonTable;
-import org.springframework.web.bind.annotation.*;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Iterator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @RestController
 @RequestMapping("/account")
-public class AccountController implements BasicGetController<Account>
+public class AccountController implements BasicGetController
 {
     @JsonAutowired(value = Account.class, filepath ="C:\\Users\\rizky\\Documents\\2022_Praktikum OOP\\JSleep\\src\\json\\account.json")
     public static JsonTable<Account> accountTable;
-    public static final String REGEX_PASSWORD = "[(A-Z){1,}(a-z){1,}(0-9){1,}]{8,}";
+    public static final String REGEX_PASSWORD = "[(A-Z)+(a-z)+(0-9)+*]{8,}";
     public static final Pattern REGEX_PATTERN_PASSWORD = Pattern.compile(REGEX_PASSWORD);
-    public static final String REGEX_EMAIL = "^[A-Za-z0-9]{1,}@{1}[A-Za-z]{1,}[.]{1}.([A-Za-z])$";
+    public static final String REGEX_EMAIL = "^[A-Za-z0-9]+@[a-zA-Z]+\\.[a-zA-Z]+$";
     public static final Pattern REGEX_PATTERN_EMAIL = Pattern.compile(REGEX_EMAIL);
 
     /*@GetMapping
     String index() { return "account page"; }
+
+
     */
+    public AccountController() {
+    }
+    public JsonTable<Account> getJsonTable() {
+        return accountTable;
+    }
     @PostMapping("/register")
     Account register
             (
@@ -48,13 +56,29 @@ public class AccountController implements BasicGetController<Account>
                     return null;
                 }
             }
+
+            MessageDigest messageDigest = null;
+            try {
+                messageDigest = MessageDigest.getInstance("MD5");
+
+            messageDigest.update(password.getBytes());
+
+            byte[] bytes = messageDigest.digest();
+
+            StringBuilder builder = new StringBuilder();
+            for (int i = 0; i < bytes.length; i++) {
+                builder.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+            }
+
+            password = builder.toString();
+
+            } catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
+            }
+
             return new Account(name, email, password);
         }
 
-    }
-
-    public JsonTable<Account> getJsonTable() {
-        return accountTable;
     }
 
     @PostMapping("/login")
@@ -66,9 +90,51 @@ public class AccountController implements BasicGetController<Account>
         Iterable<Account> iterableAccount = accountTable;
         Iterator<Account> iteratorAcc = iterableAccount.iterator();
 
+        MessageDigest messageDigest = null;
+        try {
+            messageDigest = MessageDigest.getInstance("MD5");
+
+
+        messageDigest.update(password.getBytes());
+
+        byte[] bytes = messageDigest.digest();
+
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < bytes.length; i++) {
+            builder.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+        }
+
+        password = builder.toString();
+
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+
         while (iteratorAcc.hasNext()) {
             Account check = iteratorAcc.next();
-            if (check.email == email && check.password == password) {
+
+            String checkedPassword = null;
+
+            try {
+                MessageDigest md = MessageDigest.getInstance("MD5");
+
+
+            messageDigest.update(check.password.getBytes());
+
+            byte[] theBytes = messageDigest.digest();
+
+            StringBuilder builder = new StringBuilder();
+            for (int i = 0; i < theBytes.length; i++) {
+                builder.append(Integer.toString((theBytes[i] & 0xff) + 0x100, 16).substring(1));
+            }
+
+            checkedPassword = builder.toString();
+
+            } catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
+            }
+
+            if (check.email == email && checkedPassword == password) {
                 return check;
             }
         }
@@ -95,7 +161,7 @@ public class AccountController implements BasicGetController<Account>
         }
         return null;
     }
-    @PostMapping("/{id}//topUp")
+    @PostMapping("/{id}/topUp")
     boolean topUp(@PathVariable int id, @RequestParam double balance) {
         Iterable<Account> iterableAccount = accountTable;
         Iterator<Account> iteratorAcc = iterableAccount.iterator();

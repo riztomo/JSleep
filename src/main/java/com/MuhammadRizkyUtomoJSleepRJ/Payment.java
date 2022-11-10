@@ -20,11 +20,11 @@ public class Payment extends Invoice
     private int roomId;
     
     /** The constructor obtains four int-s... */
-    public Payment(int buyerId, int renterId, int roomId) {
+    public Payment(int buyerId, int renterId, int roomId, Date fromDate, Date toDate) {
         super(buyerId, renterId);
         this.roomId = roomId;
-        this.from = new Date();
-        this.to = new Date(this.from.getTime() + 2*24*60*60*1000);
+        this.from = fromDate;
+        this.to = toDate;
         
     }
     
@@ -53,14 +53,7 @@ public class Payment extends Invoice
         String finish = dateformat.format(to.getTime());
         return (start + " - " + finish);
     }*/
-    
-    /** Prints the current time */
-    public String getTime() {
-        SimpleDateFormat dateformat = new SimpleDateFormat("dd MMMMMMMMM yyyy");
-        String theTime = dateformat.format(time.getTime());
-        return theTime;
-    }
-    
+
     public static boolean availability(Date from,Date to,Room room) {
 
         Date prevDate = new Date();
@@ -94,7 +87,7 @@ public class Payment extends Invoice
         
         bool = availability(from,to,room);
         
-        if (bool) {
+        if (bool == true) {
             room.booked.add(from);
             room.booked.add(to);
         }
