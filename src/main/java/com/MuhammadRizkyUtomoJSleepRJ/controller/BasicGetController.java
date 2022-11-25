@@ -4,13 +4,11 @@ import com.MuhammadRizkyUtomoJSleepRJ.Algorithm;
 import com.MuhammadRizkyUtomoJSleepRJ.Predicate;
 import com.MuhammadRizkyUtomoJSleepRJ.dbjson.JsonTable;
 import com.MuhammadRizkyUtomoJSleepRJ.dbjson.Serializable;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RestController
 public interface BasicGetController<T extends Serializable> {
     @GetMapping("/page")
     public default List<T> getPage(
@@ -25,5 +23,5 @@ public interface BasicGetController<T extends Serializable> {
         return Algorithm.<T>find(getJsonTable(), acc -> acc.id == id);
     }
 
-    public JsonTable<T> getJsonTable();
+    public abstract JsonTable<T> getJsonTable();
 }

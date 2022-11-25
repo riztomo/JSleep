@@ -140,8 +140,7 @@ public class JSleep
     }
 
     public static List<Room> filterByCity(List<Room> roomList, String city, int page, int pageSize) {
-        Algorithm algo = new Algorithm();
-        List<Room> sent = algo.paginate(roomList, page, pageSize, city::equals);
+        List<Room> sent = Algorithm.paginate(roomList, page, pageSize, city::equals);
         return sent;
     }
     public static List<Room> filterByPrice(List<Room> roomList, double priceStart, double priceFinish) {
