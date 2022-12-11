@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
  * Stores the personal data of a renter.
  *
  * @author Muhammad Rizky Utomo
- * @version 01/11/2022
+ * @version 11/12/2022
  */
 public class Renter extends Serializable
 {
@@ -33,7 +33,7 @@ public class Renter extends Serializable
     }
 
     /**
-     * Validates that the username and phone number strings are compliant to the required character combinations.
+     * Validates that the given username and phone number strings are compliant to the required character combinations.
      * @return boolean
      */
     public boolean validate()

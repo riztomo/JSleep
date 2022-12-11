@@ -9,6 +9,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * Controls Room management.
+ *
+ * @author Muhammad Rizky Utomo
+ * @version 11/12/2022
+ */
+
 @RestController
 @RequestMapping("/room")
 public class RoomController implements BasicGetController<Room>{
@@ -75,7 +82,7 @@ public class RoomController implements BasicGetController<Room>{
      * Gets a specified amount of available room.
      * @param page
      * @param pageSize
-     * @return
+     * @return List<Room>
      */
     @PostMapping("/getAllRoom")
     public List<Room> getAllRoom(

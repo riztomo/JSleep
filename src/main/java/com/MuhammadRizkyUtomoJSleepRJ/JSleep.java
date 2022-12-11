@@ -17,7 +17,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Location of the 'main' method.
  *
  * @author Muhammad Rizky Utomo
- * @version 01/11/2022
+ * @version 11/12/2022
  */
 
 /** Place of running (and testing) */

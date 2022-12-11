@@ -8,6 +8,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * Makes a base on controllers' methods
+ * @param <T>
+ *
+ * @author Muhammad Rizky Utomo
+ * @version 11/12/2022
+ */
+
 @RestController
 public interface BasicGetController<T extends Serializable> {
     /**

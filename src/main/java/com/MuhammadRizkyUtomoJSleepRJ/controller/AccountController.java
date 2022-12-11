@@ -14,6 +14,13 @@ import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Controls Account management.
+ *
+ * @author Muhammad Rizky Utomo
+ * @version 11/12/2022
+ */
+
 @RestController
 @RequestMapping("/account")
 public class AccountController implements BasicGetController<Account>

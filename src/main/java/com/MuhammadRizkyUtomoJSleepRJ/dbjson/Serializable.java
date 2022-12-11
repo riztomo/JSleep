@@ -7,7 +7,7 @@ import java.util.HashMap;
  * Serializable sets the id with increments
  *
  * @author Muhammad Rizky Utomo
- * @version 01/11/2022
+ * @version 11/12/2022
  */
 public class Serializable implements Comparable<Serializable>
 {
@@ -48,15 +48,32 @@ public class Serializable implements Comparable<Serializable>
             return false;
         }
     }
-
+    /**
+     * Checks whether an ID is equal to this Object's ID.
+     * @param a
+     * @return boolean
+     */
     public boolean equals(Serializable a) {
         return a.id == id;
     }
 
+    /**
+     * Gets the closing ID.
+     * @param a
+     * @return <T extends Serializable>
+     * @param <T>
+     */
     public static <T extends Serializable> Integer getClosingId(Class<T> a) {
         return mapCounter.get(a);
     }
 
+    /**
+     * Sets the closing ID.
+     * @param a
+     * @param setter
+     * @return <T extends Serializable>
+     * @param <T>
+     */
     public static <T extends Serializable> Integer setClosingId(Class<T> a, int setter) {
         return mapCounter.put(a, setter);
     }

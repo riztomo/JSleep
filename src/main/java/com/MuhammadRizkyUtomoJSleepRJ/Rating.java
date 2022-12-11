@@ -5,7 +5,7 @@ package com.MuhammadRizkyUtomoJSleepRJ;
  * Determines the customer's rating of their experience.
  *
  * @author Muhammad Rizky Utomo
- * @version 01/11/2022
+ * @version 11/12/2022
  */
 public class Rating
 {

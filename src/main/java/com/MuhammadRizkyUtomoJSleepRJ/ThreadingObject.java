@@ -1,5 +1,11 @@
 package com.MuhammadRizkyUtomoJSleepRJ;
 
+/**
+ * Makes a processing thread.
+ *
+ * @author Muhammad Rizky Utomo
+ * @version 11/12/2022
+ */
 public class ThreadingObject extends Thread {
     /**
      * Constructor of ThreadingObject

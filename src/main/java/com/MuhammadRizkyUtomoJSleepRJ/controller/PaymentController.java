@@ -12,6 +12,13 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * Controls Payment management.
+ *
+ * @author Muhammad Rizky Utomo
+ * @version 11/12/2022
+ */
+
 @RestController
 @RequestMapping("/payment")
 public class PaymentController implements BasicGetController<Payment>{

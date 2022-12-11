@@ -5,7 +5,7 @@ package com.MuhammadRizkyUtomoJSleepRJ;
  * Enumeration class City - location of the branches of the hotel franchise.
  *
  * @author Muhammad Rizky Utomo
- * @version 01/11/2022
+ * @version 11/12/2022
  */
 public enum City
 {

@@ -5,7 +5,7 @@ package com.MuhammadRizkyUtomoJSleepRJ;
  * Enumeration class BedType - available bed types.
  *
  * @author Muhammad Rizky Utomo
- * @version 01/11/2022
+ * @version 11/12/2022
  */
 public enum BedType
 {

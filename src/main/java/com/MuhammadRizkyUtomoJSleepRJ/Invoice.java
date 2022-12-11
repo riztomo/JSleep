@@ -8,7 +8,7 @@ import java.util.Date;
  * Generates the invoice for a recorded stay.
  *
  * @author Muhammad Rizky Utomo
- * @version 01/11/2022
+ * @version 11/12/2022
  */
 
 public class Invoice extends Serializable

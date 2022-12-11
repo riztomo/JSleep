@@ -5,7 +5,7 @@ package com.MuhammadRizkyUtomoJSleepRJ;
  * Determines the total price and slashed price after discount.
  *
  * @author Muhammad Rizky Utomo
- * @version 01/11/2022
+ * @version 11/12/2022
  */
 public class Price
 {

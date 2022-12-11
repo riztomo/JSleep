@@ -9,7 +9,7 @@ import java.util.List;
  * Prints the payment details.
  *
  * @author Muhammad Rizky Utomo
- * @version 01/11/2022
+ * @version 11/12/2022
  */
 public class Payment extends Invoice
 {
