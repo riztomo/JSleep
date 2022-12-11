@@ -1,1 +1,1 @@
-[]
+[{"size":35,"accountId":7,"name":"Haary","facility":["Refrigerator","AC","FitnessCenter","Restaurant"],"price":{"price":54000.0,"discount":0.0},"address":"Denpasar","bedType":"SINGLE","city":"BALI","booked":[],"id":0},{"size":35,"accountId":1,"name":"Guernsey Special","facility":["Refrigerator","WiFi","Bathtub","Balcony","AC","FitnessCenter","Restaurant","SwimmingPool"],"price":{"price":70000.0,"discount":0.0},"address":"Batu","bedType":"QUEEN","city":"LAMPUNG","booked":[],"id":1}]

@@ -14,7 +14,14 @@ public class Validate
     public Validate() {
         
     }
-    
+
+    /**
+     * Filters price
+     * @param list Price list.
+     * @param value Comparison value
+     * @param less Less or not than value.
+     * @return ArrayList of Price.
+     */
     public static ArrayList filter (Price[] list, int value, boolean less) {
         ArrayList<Double> values = new ArrayList<>();
         

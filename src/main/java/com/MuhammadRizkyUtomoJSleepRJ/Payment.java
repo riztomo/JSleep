@@ -19,7 +19,12 @@ public class Payment extends Invoice
     public Date from;
     private int roomId;
     
-    /** The constructor obtains four int-s... */
+    /** The constructor obtains four int-s...
+     * @param buyerId Buyer's account information.
+     * @param renterId Buyer's renter information.
+     * @param roomId Room's ID information.
+     * @param fromDate Start date of stay.
+     * @param toDate End date of stay.*/
     public Payment(int buyerId, int renterId, int roomId, Date fromDate, Date toDate) {
         super(buyerId, renterId);
         this.roomId = roomId;
@@ -28,7 +33,10 @@ public class Payment extends Invoice
         
     }
     
-    /** ...or change the two int-s of buyer and renter ID with an object from Account and Renter */
+    /** ...or change the two int-s of buyer and renter ID with an object from Account and Renter
+     * @param buyer Buyer's account information.
+     * @param renter Buyer's renter information.
+     * @param roomId Room's ID information.*/
     public Payment(Account buyer, Renter renter, int roomId) {
         super(buyer, renter);
         this.roomId = roomId;
@@ -36,12 +44,17 @@ public class Payment extends Invoice
         this.to = new Date(this.from.getTime() + 2*24*60*60*1000);
     }
 
-    /** Gets the room ID */
+    /** Gets the room ID
+     * @return int
+     */
     public int getRoomId() {
         return roomId;
     }
     
-    /** Prints the payment details */
+    /**
+     * Prints the payment details
+     * @return String
+     */
     public String print() {
         return ("Room ID: " + roomId + "\n" + "Payment to: " + to + "\n" + "Payment from: " + from + "\n");
     }
@@ -53,45 +66,48 @@ public class Payment extends Invoice
         String finish = dateformat.format(to.getTime());
         return (start + " - " + finish);
     }*/
-
-    public static boolean availability(Date from,Date to,Room room) {
-
-        Date prevDate = new Date();
-        int iter = 1;
-
-        if (from.compareTo(to) > 0) {
+    /**
+     * Checks room availability for the specified duration of stay.
+     * @param from Start date of stay.
+     * @param to End date of stay.
+     * @param room Selected room.
+     * @return boolean
+     */
+    public static boolean availability(Date from, Date to, Room room)
+    {
+        if(to.before(from))
             return false;
-        } else if (room.booked.isEmpty()) {
+        if(room.booked.isEmpty()){
             return true;
-        } else {
-            for (Date roomDate : room.booked) {
-                if (roomDate.compareTo(from) >= 0 && roomDate.compareTo(to) <= 0) {
-                    return false;
-                } else if ((iter % 2) == 0) {
-                    if (from.compareTo(prevDate) > 0 && to.compareTo(roomDate) < 0) {
-                        return false;
-                    }
-                }
-
-                iter += 1;
-                prevDate = roomDate;
+        }
+        for(Date i : room.booked){
+            if(i.after(from) && i.before(to) || i.equals(from)){
+                return false;
             }
         }
-        
         return true;
     }
-    
+
+    /**
+     * Books a room if availability is true.
+     * @param from
+     * @param to
+     * @param room
+     * @return Boolean of availability
+     */
     public static boolean makeBooking(Date from,Date to,Room room) {
-        
-        boolean bool;
-        
-        bool = availability(from,to,room);
-        
-        if (bool == true) {
-            room.booked.add(from);
-            room.booked.add(to);
+        Calendar tempDate = Calendar.getInstance();
+
+        if(availability(from, to, room)){
+            while(from.before(to)){
+                room.booked.add(from);
+                tempDate.setTime(from);
+                tempDate.add(Calendar.DATE, 1);
+                from = tempDate.getTime();
+            }
+            return true;
+        }else{
+            return false;
         }
-        
-        return bool;
     }
 }

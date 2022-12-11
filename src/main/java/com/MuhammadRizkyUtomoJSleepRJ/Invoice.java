@@ -27,21 +27,34 @@ public class Invoice extends Serializable
     public int renterId;
     public RoomRating rating;
     public PaymentStatus status;
-    
+
+    /**
+     * Constructor of Invoice.
+     * @param buyerId Buyer's account ID.
+     * @param renterId Buyer's renter ID.
+     */
     protected Invoice(int buyerId, int renterId) {
         this.buyerId = buyerId;
         this.renterId = renterId;
         this.rating = RoomRating.NONE;
         this.status = PaymentStatus.WAITING;
     }
-    
+
+    /**
+     * Constructor of Invoice.
+     * @param buyer
+     * @param renter
+     */
     public Invoice(Account buyer, Renter renter) {
         this.buyerId = buyer.id;
         this.renterId = renter.id;
         this.rating = RoomRating.NONE;
         this.status = PaymentStatus.WAITING;
     }
-    
+    /**
+     * Returns the customers' buyer and renter ID information in a string format.
+     * @return buyerId, renterId
+     */
     public String print() {
         return ("Buyer ID: " + buyerId + "\n" + "Renter ID: " + renterId + "\n" + "\n");
     }

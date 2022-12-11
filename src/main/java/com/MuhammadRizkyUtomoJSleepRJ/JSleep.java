@@ -132,7 +132,7 @@ public class JSleep
         }*/
     }
     
-    
+    /*
     public static Room createRoom() {
         Price price = new Price(5000000, 18);
         Room room = new Room(1,"Hotel", 30, price, Facility.AC, City.SURABAYA, "somewhere");
@@ -180,6 +180,7 @@ public class JSleep
 
         return obtained;
     }
+     */
     
     /*
     public static int getHotelId() {

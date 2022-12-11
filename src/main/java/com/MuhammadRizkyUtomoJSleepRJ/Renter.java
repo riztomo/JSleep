@@ -19,13 +19,23 @@ public class Renter extends Serializable
     public static final String REGEX_NAME = "^[A-Z][a-z_-]{5,22}$";
     public static final String REGEX_PHONE = "[0-9]{9,12}$";
 
-    public Renter (String username, String phoneNumber, String address)
+    /**
+     * Constructor of Renter.
+     * @param username Renter's username.
+     * @param address Renter's address.
+     * @param phoneNumber Renter's phoneNumber.
+     */
+    public Renter (String username, String address, String phoneNumber)
     {
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.username = username;
     }
 
+    /**
+     * Validates that the username and phone number strings are compliant to the required character combinations.
+     * @return boolean
+     */
     public boolean validate()
     {
         Pattern usernamePattern = Pattern.compile(REGEX_NAME);

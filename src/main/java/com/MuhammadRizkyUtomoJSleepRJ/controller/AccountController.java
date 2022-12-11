@@ -24,11 +24,22 @@ public class AccountController implements BasicGetController<Account>
     public static final String REGEX_EMAIL = "^[a-zA-Z0-9 ][a-zA-Z0-9]+@[a-zA-Z.]+?\\.[a-zA-Z]+?$";
     public static final Pattern REGEX_PATTERN_EMAIL = Pattern.compile(REGEX_EMAIL);
 
+    /**
+     * Gets the account table in JSON format.
+     * @return JsonTable<Account>
+     */
     @Override
     public JsonTable<Account> getJsonTable() {
         return accountTable;
     }
 
+    /**
+     * Registers an account.
+     * @param name
+     * @param email
+     * @param password
+     * @return Account
+     */
     @PostMapping("/register")
     Account register(
             @RequestParam String name,
@@ -49,6 +60,12 @@ public class AccountController implements BasicGetController<Account>
         return null;
     }
 
+    /**
+     * Logs into an account.
+     * @param email
+     * @param password
+     * @return Account
+     */
     @PostMapping("/login")
     Account login(
             @RequestParam String email,
@@ -58,6 +75,14 @@ public class AccountController implements BasicGetController<Account>
         return Algorithm.<Account>find(accountTable, pred -> Objects.equals(pred.email, email) && Objects.equals(pred.password, generatedPass));
     }
 
+    /**
+     * Registers renter's details from an account.
+     * @param id
+     * @param name
+     * @param address
+     * @param phoneNumber
+     * @return Renter
+     */
     @PostMapping("/{id}/registerRenter")
     Renter registerRenter(
             @PathVariable int id,
@@ -72,6 +97,12 @@ public class AccountController implements BasicGetController<Account>
         return null;
     }
 
+    /**
+     * Top-ups an account's balance
+     * @param id
+     * @param balance
+     * @return boolean
+     */
     @PostMapping("/{id}/topUp")
     boolean topUp
             (
@@ -87,6 +118,11 @@ public class AccountController implements BasicGetController<Account>
         return false;
     }
 
+    /**
+     * Converts a password to its hashed variant.
+     * @param password
+     * @return String
+     */
     private static String hashPassword(String password){
         String hashedPass = null;
         try{
